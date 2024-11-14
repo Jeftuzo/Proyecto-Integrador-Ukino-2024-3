@@ -77,9 +77,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 {% endblock %}
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
-          <a class="navbar-brand" href="/"><img src="/static/imagenes/owl.png" alt="" width="30" height="24" class="d-inline-block align-text-top"></a>
+          <a class="navbar-brand" href="/"><img src="/static/image/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -87,13 +87,15 @@
             <div class="navbar-nav">
               <a class="nav-link" href="/">Inicio</a>
               {% if session['logged_in'] == True %}
-              <a class="nav-link"  href="/bd">Agregar Pelicula</a>
-              <a class="nav-link" href="/ed">Foro</a>
-              <a class="nav-link" href="/electronica">Quejas</a>
-              <a class="nav-link" href="/poo2">Quejas</a>
+              <a class="nav-link"  href="/bd">Base de Datos</a>
+              <a class="nav-link" href="/ed">Ecuaciones Dif</a>
+              <a class="nav-link" href="/electronica">Electronica</a>
+              <a class="nav-link" href="/poo2">POO2</a>
+              <a class="nav-link" href="/ident">Identificador</a>
+
               {% if 'usuario' in session  %}
                 <div><a href="/perfil" class="nav-link">{{session['usuario']}}</a></div>
-                {% set imagen = "/static/imagenes/%s.png" % session['usuario'] %}
+                {% set imagen = "/static/image/%avatar.png" % session['usuario'] %}
                 {% if os.path.exists("."+imagen) %}
                     <div><img src="{{imagen}}" width="50"></div>
                 {% else %}

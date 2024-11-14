@@ -33,7 +33,7 @@ def actualizarEstado(nombre:str, activo:int):
     conexion.commit()
     conexion.close()
 
-def actualizarEstado(nombre:str, contraña:str):
+def actualizarContraseña(nombre:str, contraña:str):
     conexion = conectarse()
     with conexion.cursor() as cursor:
         cursor.execute("UPDATE contraña SET contraña = " + "'" + contraña + "'" + "WHERE nombre = " + "'")
@@ -42,10 +42,24 @@ def actualizarEstado(nombre:str, contraña:str):
 
 #endregion
 #region setDatos
+def guardarCombinacionesMulti(multiplexor:str)->None:
+    conexion = conectarse()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO combinaciones(multiplexor) VALUES(%s, %s)",
+                        (multiplexor))
+    conexion.commit()
+    conexion.close()
 
+def guardarCombinacionesDemulti(demultiplexor:str)->None:
+    conexion = conectarse()
+    with conexion.cursor() as cursor:
+        cursor.execute("INSERT INTO combinaciones(demultiplexor) VALUES(%s, %s)",
+                     (demultiplexor))
+    conexion.commit()
+    conexion.close()
 #endregion
 #region getDatos
-def comprobar_usuario()->list:
+def comprobarUsuario()->list:
     c_us = []
     conexion = conectarse()
     with conexion.cursor() as cursor:
@@ -67,17 +81,26 @@ def get_password(nombre:str)->str:
         pas = password.__getitem__(i)
     return pas
 
-def get_conceptos()->str:
+def getConceptos(materia:int)->str:
     concepts = []
     conexion = conectarse()
     with conexion.cursor() as cursor:
-        conceptos1 = cursor.execute("SELECT titulo FROM conceptos")
-        conseptos1 = cursor.fetchall()
-        conceptos2 = cursor.execute("SELECT descripcion FROM conceptos")
-        conseptos2 = cursor.fetchall()
-    conexion.close()
+        conceptos1 = cursor.execute("SELECT titulo FROM conceptos WHERE idpagina =" + "'" + materia +"'")
+        conceptos1 = cursor.fetchall()
+        conceptos2 = cursor.execute("SELECT descripcion FROM conceptos WHERE idpagina =" + "'" + materia +"'")
+        conceptos2 = cursor.fetchall()
+    conexion.close() 
     for i in range(len(conceptos1)):
         concepts.append(conceptos1.__getitem__(i))
         concepts.append(conceptos2.__getitem__(i))
     return concepts
+
+def getIDPagina(pagina:str)->str:
+    conexion = conectarse()
+    with conexion.cursor() as cursor:
+        idPagina = cursor.execute("SELECT idpagina FROM pagina WHERE materia =" + "'" + pagina +"'")
+        idPagina = cursor.fetchone()
+    conexion.close() 
+    idPag = idPagina.__getitem__(0)
+    return idPag
 #endregion
