@@ -65,7 +65,7 @@ def new_user():
             usuario=request.form['usuario']
             password=request.form['contraseña']
             password_cryp = sha256_crypt.hash(password)
-            c_usuario = comprobar_usuario()
+            c_usuario = comprobarUsuario()
             if usuario not in c_usuario:
                 guardarUsuario(usuario, password_cryp)
             return redirect('/login')
