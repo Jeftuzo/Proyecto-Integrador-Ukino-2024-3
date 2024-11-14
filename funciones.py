@@ -71,7 +71,7 @@ def comprobarUsuario()->list:
         c_us.append(us.__getitem__(0))
     return c_us
 
-def get_password(nombre:str)->str:
+def getPassword(nombre:str)->str:
     conexion = conectarse()
     with conexion.cursor() as cursor:
         password = cursor.execute("SELECT contraña FROM usuario =" + "'" + nombre + "'")

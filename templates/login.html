@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv = "X-UA-Compatible" content="ie=edge">
+    <title>LOGIN</title>
+    <style>
+        div.log{
+            padding-top: 9%;
+            padding-left: 40%;
+            padding-bottom: 26%;
+        }
+    </style>
 </head>
 <body>
-    
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/"><img src="/static/image/Captura de pantalla 2024-11-13 175654.png" alt="" width="30" height="24" class="d-inline-block align-text-top"></a>
+        </div>
+    </nav>
+    <div class="log">
+        <form method="POST" class="form-box animate__animated animate__fadeInUp">
+            <h1 class="form-title">Sing In</h1>
+            <div>
+                <input type="text" placeholder="nombre" id="nombre" name="nombre">
+            </div>
+            <div>
+                <input type="text" placeholder="correo" id="correo" name="correo">
+            </div>
+            <div>
+                <input type="password" placeholder="contraseña" name="contraseña">
+            </div>
+            <div>
+                <button method="POST" id="enviar" name = "Enviar" value="Enviar" type="submit">
+                    LOGIN
+                </button>
+            </div>
+            <div>
+                <a href="/registro">No tienes usuario?</a>
+            </div>
+        </form>
+    </div>    
 </body>
 </html>
