@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrador</title>
+    <link rel="stylesheet" href="/static/estilos/multi.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Simulador de Multiplexor 4051</h1>
+        
+        <div class="main-content">
+            <!-- Columna de entradas y selección de control -->
+            <div class="input-column">
+                <h2>Entradas (D0 - D7)</h2>
+                
+                <!-- Entradas D0 a D7 como botones -->
+                <button id="D0" onclick="toggleValue('D0')">D0: 0</button>
+                <button id="D1" onclick="toggleValue('D1')">D1: 0</button>
+                <button id="D2" onclick="toggleValue('D2')">D2: 0</button>
+                <button id="D3" onclick="toggleValue('D3')">D3: 0</button>
+                <button id="D4" onclick="toggleValue('D4')">D4: 0</button>
+                <button id="D5" onclick="toggleValue('D5')">D5: 0</button>
+                <button id="D6" onclick="toggleValue('D6')">D6: 0</button>
+                <button id="D7" onclick="toggleValue('D7')">D7: 0</button>
+                
+                <!-- Separación para las entradas de control -->
+                <div class="control-header">
+                    <h2>Selección de Control (A, B, C)</h2>
+                </div>
+
+                <!-- Entradas de control A, B y C como botones -->
+                <button id="inputA" onclick="toggleValue('inputA')">A: 0</button>
+                <button id="inputB" onclick="toggleValue('inputB')">B: 0</button>
+                <button id="inputC" onclick="toggleValue('inputC')">C: 0</button>
+            </div>
+
+            <!-- Imagen del circuito -->
+            <div class="circuit-image">
+                <img src="/static/image/Multiplexor.png" alt="Circuito del Multiplexor 4051">
+            </div>
+
+            <!-- Columna de salida -->
+            <div class="output-column">
+                <h2>Salida de Datos</h2>
+                <div class="output">
+                    <p>Salida seleccionada:</p>
+                    <span id="outputValue">N/A</span>
+                </div>
+                <button onclick="simularMultiplexor()">Simular</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/js/multi.js"></script>
+</body>
+</html>

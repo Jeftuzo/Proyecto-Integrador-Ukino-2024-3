@@ -1,8 +1,8 @@
 import os
 from flask import*
 from passlib.hash import sha256_crypt
-from funciones import *
-from login import incio
+from funciones import comprobarUsuario, getPassword, guardarUsuario, getIDPagina, getConceptos, identificar_ecuacion
+from login import inicio
 
 app = Flask(__name__)
 app.secret_key = "Moltr3s_3l_Gu4jolot3_M4cías"
@@ -27,13 +27,11 @@ def login():
     else:
         if request.method == 'POST':
             usuario = request.form['nombre']
-            user = comprobarUsuario(usuario)
             c_usuario = comprobarUsuario()
-            
             if usuario not in c_usuario:
                 return redirect('/registro')
             else:
-                if usuario == user:
+                if usuario in c_usuario:
                     password_db = getPassword(usuario) # password guardado
                     password_forma = request.form['contraseña'] #password presentado
                     verificado = sha256_crypt.verify(password_forma,password_db)
@@ -41,7 +39,7 @@ def login():
                     if (verificado == True):
                         session['nombre'] = usuario
                         session['logged_in'] = True
-                        incio(user_in_sesion)
+                        inicio(user_in_sesion)
                         if 'ruta' in session:
                             ruta = session['ruta']
                             session['ruta'] = None
@@ -109,7 +107,7 @@ def poo2():
 @app.route('/ident/', methods=['GET'])
 def ident():
     if request.method == 'GET':
-        return render_template('indetificacion.html')
+        return render_template('identificacion.html')
     
 @app.route('/perfil', methods=['GET'])
 @app.route('/perfil/', methods=['GET'])
@@ -123,6 +121,12 @@ def logout():
     if request.method == 'GET':
         session.clear()
         return redirect("/")
+
+@app.route('/resultado', methods=['POST'])
+def process_equation():
+    ecuacion = request.form['equation']
+    resultado = identificar_ecuacion(ecuacion)
+    return jsonify(resultado)
 
 if __name__ == '__main__':
     app.run(debug=True)

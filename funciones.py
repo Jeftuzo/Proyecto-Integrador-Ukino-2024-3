@@ -3,10 +3,10 @@ import pymysql
 #region conectarse
 def conectarse()-> None:
     return pymysql.connect(
-        host="127.0.0.0",
+        host="127.0.0.1",
         user="root",
-        passwd="Contraseña@123",
-        db="baseatos",
+        passwd="NightcoreBlack04",
+        db="integradora",
     )
 
 #endregion
@@ -19,12 +19,13 @@ class Usuario():
         self.status = status
 
 def guardarUsuario(nombre:str, correo:str, constraña:str, status):
+    password_cryp = sha256_crypt.hash(constraña)
     conexion = conectarse()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO usuarios(nombre, correo, contraseña, status) VALUES(%s, %s, %s)")
-        (nombre, correo, constraña)
+        cursor.execute("INSERT INTO usuario(nombre, correo, contraseña, estatus) VALUES(%s, %s, %s, %s)",(nombre, correo, password_cryp, status))
     conexion.commit()
     conexion.close()
+#guardarUsuario("patata", "patata@correo.com", "patata", "1")
 
 def actualizarEstado(nombre:str, activo:int):
     conexion = conectarse()
@@ -63,7 +64,7 @@ def comprobarUsuario()->list:
     c_us = []
     conexion = conectarse()
     with conexion.cursor() as cursor:
-        cursor.execute("SELECT usuario FROM usuarios")
+        cursor.execute("SELECT nombre FROM usuario")
         c_usuario = cursor.fetchall()
     conexion.close()
     for i in range(len(c_usuario)):
@@ -71,15 +72,18 @@ def comprobarUsuario()->list:
         c_us.append(us.__getitem__(0))
     return c_us
 
+#print(comprobarUsuario())
+
 def getPassword(nombre:str)->str:
     conexion = conectarse()
     with conexion.cursor() as cursor:
-        password = cursor.execute("SELECT contraña FROM usuario =" + "'" + nombre + "'")
+        password = cursor.execute("SELECT contraseña FROM usuario Where nombre = " + "'" + nombre + "';")
         password = cursor.fetchone()
     conexion.close()
-    for i in range(len(password)):
-        pas = password.__getitem__(i)
+    pas = password.__getitem__(0)
     return pas
+
+print(getPassword("patata"))
 
 def getConceptos(materia:int)->str:
     concepts = []
@@ -103,4 +107,16 @@ def getIDPagina(pagina:str)->str:
     conexion.close() 
     idPag = idPagina.__getitem__(0)
     return idPag
+#endregion
+
+#region identificador
+def identificar_ecuacion(ecuacion):
+    # Simplificado para este ejemplo
+    resultado = {
+        "grado": "1" if "^" not in ecuacion else "2",  
+        "orden": "2",  # Placeholder para orden
+        "linealidad": "Lineal" if "y" in ecuacion and "^" not in ecuacion else "No lineal",
+        "tipo": "Ordinaria" if "∂" not in ecuacion else "Parcial"
+    }
+    return resultado
 #endregion
