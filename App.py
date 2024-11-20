@@ -2,7 +2,7 @@ import os
 from flask import*
 from passlib.hash import sha256_crypt
 from funciones import *
-from login import incio
+from login import inicio
 
 app = Flask(__name__)
 app.secret_key = "Moltr3s_3l_Gu4jolot3_M4cías"
