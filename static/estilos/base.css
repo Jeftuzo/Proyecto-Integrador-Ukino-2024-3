@@ -1,0 +1,44 @@
+body {
+    font-family: Arial, sans-serif;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+nav{
+    background-color: rgb(127, 78, 78);
+    font-size: 100%;
+    overflow: hidden;
+}
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around; /* Distribuye los elementos equitativamente */
+}
+
+.navbar li {
+    display: inline;
+}
+
+.navbar a {
+    display: block;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a:hover {
+    background-color: #0004eb;
+    color: black;
+}
+
+img.logo{
+    width: 20%;
+    display: flex; 
+    justify-content: flex-end; /* Mueve el elemento al lado derecho */ 
+    position: absolute;
+
+}
