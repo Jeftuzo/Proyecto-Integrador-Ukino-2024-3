@@ -5,8 +5,8 @@ def conectarse()-> None:
     return pymysql.connect(
         host="127.0.0.1",
         user="root",
-        passwd="NightcoreBlack04",
-        db="integradora",
+        passwd="JeftuzoTheKill2003",
+        db="integrador",
     )
 
 #endregion
@@ -83,7 +83,7 @@ def getPassword(nombre:str)->str:
     pas = password.__getitem__(0)
     return pas
 
-print(getPassword("patata"))
+#print(getPassword("patata"))
 
 def getConceptos(materia:int)->str:
     concepts = []
