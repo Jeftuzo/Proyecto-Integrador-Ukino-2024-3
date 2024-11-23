@@ -75,7 +75,7 @@ def bd():
     datos = getConceptos(idPagina)
     if request.method == 'GET':
         return render_template('bd.html', datos = datos)
-
+    
 @app.route('/ed', methods=['GET'])
 @app.route('/ed/', methods=['GET'])
 def ed():

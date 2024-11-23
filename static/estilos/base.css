@@ -6,7 +6,7 @@ body {
 }
 
 nav{
-    background-color: rgb(127, 78, 78);
+    background-color: #491818;
     font-size: 100%;
     overflow: hidden;
 }
@@ -24,21 +24,21 @@ nav{
 
 .navbar a {
     display: block;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     text-align: center;
     padding: 14px 20px;
     text-decoration: none;
+    background-color: #491818;
 }
 
 .navbar a:hover {
-    background-color: #0004eb;
-    color: black;
+    background-color: #561c1c;
+    color: rgb(255, 255, 255);
 }
 
-img.logo{
+img.logo {
     width: 20%;
-    display: flex; 
-    justify-content: flex-end; /* Mueve el elemento al lado derecho */ 
-    position: absolute;
-
+    position: absolute; /* Mantén la posición absoluta */
+    right: 0; /* Alinea la imagen hacia la derecha */
+    top: 5%; /* Ajusta la distancia desde la parte superior */
 }
