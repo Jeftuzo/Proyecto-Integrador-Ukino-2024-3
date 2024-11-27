@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Programacion Orientada a Objetos 2{% endblock %}
+{% block title %}Programacion Orientada a Objetos II{% endblock %}
 {% block head %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +14,12 @@
 {% endblock %}
 {% block body %}
     <!-- Portfolio Modal-->
-
+    {% block section %}
+    <section>
+        <h1>{{datos[0]}}</h1>
+        <p>{{datos[1]}}</p>
+    </section>
+    {% endblock %}
     <div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

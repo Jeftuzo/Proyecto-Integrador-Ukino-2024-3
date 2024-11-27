@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset = "UTF-8">
@@ -29,5 +29,106 @@
         </div>
     </form>
     
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registro</title>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f7f7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 250px; /* Tamaño del logo */
+            height: auto;
+        }
+
+        .form-box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px 30px;
+            width: 300px;
+            text-align: center;
+        }
+
+        .form-box h1 {
+            font-size: 1.25rem;
+            margin-bottom: 20px;
+            color: #800000; /* Color burdeos */
+        }
+
+        .form-box input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-box button {
+            width: 100%;
+            padding: 10px;
+            background-color: #800000; /* Color burdeos */
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .form-box button:hover {
+            background-color: #660000;
+        }
+
+        .form-box a {
+            text-decoration: none;
+            color: #800000;
+            font-size: 0.9rem;
+        }
+
+        .form-box a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo de la Universidad -->
+    <div class="logo">
+        <img src="/static/image/logo.png" alt="Logo Universidad Kino" height="100%" width="100%">
+    </div>
+
+    <!-- Formulario de Registro -->
+    <form action="" method="POST" class="form-box animate__animated animate__fadeInUp">
+        <h1>Registro de nuevo Usuario</h1>
+        <input type="text" placeholder="Nombre" name="nombre" required>
+        <input type="email" placeholder="Correo" name="correo" required>
+        <input type="password" placeholder="Contraseña" name="contraseña" required>
+        <button type="submit">Registrar</button>
+        <div>
+            <a href="/login">¿Ya tienes usuario?</a>
+        </div>
+    </form>
 </body>
 </html>

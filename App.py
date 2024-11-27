@@ -1,7 +1,7 @@
 import os
 from flask import*
 from passlib.hash import sha256_crypt
-from funciones import comprobarUsuario, getPassword, guardarUsuario, getIDPagina, getConceptos, identificar_ecuacion
+from funciones import *
 from login import inicio
 
 app = Flask(__name__)
@@ -70,36 +70,34 @@ def registro():
 @app.route('/bd', methods=['GET'])
 @app.route('/bd/', methods=['GET'])
 def bd():
-    Pagina = request.form['matria']
-    idPagina = getIDPagina(Pagina)
-    datos = getConceptos(idPagina)
+    
+    datos = getConceptos("BaseDatos")
     if request.method == 'GET':
         return render_template('bd.html', datos = datos)
     
 @app.route('/ed', methods=['GET'])
 @app.route('/ed/', methods=['GET'])
 def ed():
-    Pagina = request.form['matria']
-    idPagina = getIDPagina(Pagina)
-    datos = getConceptos(idPagina)
+    
+    
+    datos = getConceptos("ED")
     if request.method == 'GET':
         return render_template('ed.html', datos = datos)
 
 @app.route('/electronica', methods=['GET','POST'])
 @app.route('/electronica/', methods=['GET','POST'])
 def elec():
-    Pagina = request.form['matria']
-    idPagina = getIDPagina(Pagina)
-    datos = getConceptos(idPagina)
+    
+    datos = getConceptos("elect")
     if request.method == 'GET':
         return render_template('electronica.html', datos = datos)
 
 @app.route('/poo2', methods=['GET'])
 @app.route('/poo2/', methods=['GET'])
 def poo2():
-    Pagina = request.form['matria']
-    idPagina = getIDPagina(Pagina)
-    datos = getConceptos(idPagina)
+    
+
+    datos = getConceptos("Poo II")
     if request.method == 'GET':
         return render_template('poo2.html', datos = datos)
 

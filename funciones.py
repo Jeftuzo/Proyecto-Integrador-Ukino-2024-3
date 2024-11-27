@@ -5,9 +5,16 @@ def conectarse()-> None:
     return pymysql.connect(
         host="127.0.0.1",
         user="root",
+        passwd="NightcoreBlack04",
+        db="integradora",
+    )
+'''def conectarse()-> None:
+    return pymysql.connect(
+        host="127.0.0.1",
+        user="root",
         passwd="JeftuzoTheKill2003",
         db="integrador",
-    )
+    )'''
 
 #endregion
 #region usuario
@@ -85,28 +92,28 @@ def getPassword(nombre:str)->str:
 
 #print(getPassword("patata"))
 
-def getConceptos(materia:int)->str:
+def getConceptos(materia:str)->str:
     concepts = []
     conexion = conectarse()
     with conexion.cursor() as cursor:
-        conceptos1 = cursor.execute("SELECT titulo FROM conceptos WHERE idpagina =" + "'" + materia +"'")
-        conceptos1 = cursor.fetchall()
-        conceptos2 = cursor.execute("SELECT descripcion FROM conceptos WHERE idpagina =" + "'" + materia +"'")
-        conceptos2 = cursor.fetchall()
+        conceptos1 = cursor.execute("SELECT titulo FROM conceptos WHERE paginas =" + "'" + materia +"'")
+        conceptos1 = cursor.fetchone()
+        conceptos2 = cursor.execute("SELECT descripcion FROM conceptos WHERE paginas =" + "'" + materia +"'")
+        conceptos2 = cursor.fetchone()
     conexion.close() 
-    for i in range(len(conceptos1)):
-        concepts.append(conceptos1.__getitem__(i))
-        concepts.append(conceptos2.__getitem__(i))
+    
+    concepts.append(conceptos1.__getitem__(0))
+    concepts.append(conceptos2.__getitem__(0))
     return concepts
 
-def getIDPagina(pagina:str)->str:
+'''def getIDPagina(pagina:str)->str:
     conexion = conectarse()
     with conexion.cursor() as cursor:
         idPagina = cursor.execute("SELECT idpagina FROM pagina WHERE materia =" + "'" + pagina +"'")
         idPagina = cursor.fetchone()
     conexion.close() 
     idPag = idPagina.__getitem__(0)
-    return idPag
+    return idPag'''
 #endregion
 
 #region identificador

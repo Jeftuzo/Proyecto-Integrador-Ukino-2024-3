@@ -21,11 +21,11 @@
             <div class="navbar-nav">
             <a class="nav-link" href="/">Inicio</a>
             {% if session['logged_in'] == True %}
-            <a class="nav-link"  href="/bd">Base de Datos</a>
-            <a class="nav-link" href="/ed">Ecuaciones Dif</a>
-            <a class="nav-link" href="/electronica">Electronica</a>
-            <a class="nav-link" href="/poo2">POO2</a>
-            <a class="nav-link" href="/ident">Identificador</a>
+            <a class="nav-link" id="materia" name="materia" href="/bd">Base de Datos</a>
+            <a class="nav-link" id="materia" name="materia" href="/ed">Ecuaciones Dif</a>
+            <a class="nav-link" id="materia" name="materia" href="/electronica">Electronica</a>
+            <a class="nav-link" id="materia" name="materia" href="/poo2">POO2</a>
+            <a class="nav-link" id="materia" name="materia" href="/ident">Identificador</a>
 
             {% if 'usuario' in session  %}
                 <div><a href="/perfil" class="nav-link">{{session['usuario']}}</a></div>
