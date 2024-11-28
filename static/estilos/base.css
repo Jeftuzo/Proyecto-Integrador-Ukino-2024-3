@@ -41,5 +41,5 @@ img.logo {
     width: 20%;
     position: absolute; /* Mantén la posición absoluta */
     right: 0; /* Alinea la imagen hacia la derecha */
-    top: 5%; /* Ajusta la distancia desde la parte superior */
+    top: 9%; /* Ajusta la distancia desde la parte superior */
 }

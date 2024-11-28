@@ -71,15 +71,13 @@ def registro():
 @app.route('/bd/', methods=['GET'])
 def bd():
     
-    datos = getConceptos("BaseDatos")
+    datos = getConceptos("BD")
     if request.method == 'GET':
         return render_template('bd.html', datos = datos)
     
 @app.route('/ed', methods=['GET'])
 @app.route('/ed/', methods=['GET'])
 def ed():
-    
-    
     datos = getConceptos("ED")
     if request.method == 'GET':
         return render_template('ed.html', datos = datos)
@@ -87,7 +85,6 @@ def ed():
 @app.route('/electronica', methods=['GET','POST'])
 @app.route('/electronica/', methods=['GET','POST'])
 def elec():
-    
     datos = getConceptos("elect")
     if request.method == 'GET':
         return render_template('electronica.html', datos = datos)
@@ -95,8 +92,6 @@ def elec():
 @app.route('/poo2', methods=['GET'])
 @app.route('/poo2/', methods=['GET'])
 def poo2():
-    
-
     datos = getConceptos("Poo II")
     if request.method == 'GET':
         return render_template('poo2.html', datos = datos)
@@ -106,6 +101,12 @@ def poo2():
 def ident():
     if request.method == 'GET':
         return render_template('identificacion.html')
+    
+@app.route('/multi', methods=['GET'])
+@app.route('/multi/', methods=['GET'])
+def multi():
+    if request.method == 'GET':
+        return render_template('multiplexor.html')
     
 @app.route('/perfil', methods=['GET'])
 @app.route('/perfil/', methods=['GET'])

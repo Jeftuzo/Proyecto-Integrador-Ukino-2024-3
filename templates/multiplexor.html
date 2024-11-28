@@ -1,12 +1,13 @@
 {% extends "base.html" %}
+{% block title %}Multiplexor{% endblock %}
 <html lang="es">
-<head>
+{% block head %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Integrador</title>
     <link rel="stylesheet" href="/static/estilos/multi.css">
-</head>
-<body>
+{{super()}}
+{% endblock %}
+{% block body %}
     <div class="container">
         <h1>Simulador de Multiplexor 4051</h1>
         
@@ -38,7 +39,7 @@
 
             <!-- Imagen del circuito -->
             <div class="circuit-image">
-                <img src="/static/image/Multiplexor.png" alt="Circuito del Multiplexor 4051">
+                <img src="/static/image/Multiplexor.jpg" alt="Circuito del Multiplexor 4051">
             </div>
 
             <!-- Columna de salida -->
@@ -54,5 +55,5 @@
     </div>
 
     <script src="/static/js/multi.js"></script>
-</body>
+{% endblock %}
 </html>
