@@ -133,5 +133,24 @@ def process_equation():
     resultado = identificar_ecuacion(ecuacion)
     return jsonify(resultado)
 
+@app.route('/ident', methods=['POST'])
+def identify_equation():
+    # Obtener los datos enviados desde el formulario
+    data = request.get_json()
+    equation = data.get('equation')
+
+    # Aquí debes implementar tu lógica para identificar la ecuación
+    # Ejemplo: Procesar la ecuación y obtener los resultados
+    results = {
+        "grado": "2",  # Supongamos que es de grado 2
+        "orden": "1",  # Supongamos que es de primer orden
+        "linealidad": "Lineal",  # Ejemplo de resultado
+        "tipo": "Ordinaria"  # Ejemplo de resultado
+    }
+
+    # Devolver los resultados como JSON
+    return jsonify(results)
+
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='127.0.0.1', port=5000, debug=True)

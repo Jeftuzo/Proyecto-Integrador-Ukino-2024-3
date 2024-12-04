@@ -1,4 +1,4 @@
-{%extends "base.html"%}
+{% extends "base.html" %}
 {% block title %}Identificador{% endblock %}
 <html lang="es">
 {% block head %}
@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Identificador de Ecuaciones Diferenciales</title>
     <link rel="stylesheet" href="/static/estilos/ident.css">
-{{super()}}
+{{ super() }}
 {% endblock %}
 {% block body %}
     <div class="container">
@@ -15,7 +15,7 @@
         </header>
         <main>
             <h1>Identificador de Ecuaciones Diferenciales</h1>
-            <form id="equation-form" action="/ident" method="POST">
+            <form id="equation-form">
                 <label for="equation">Introduce tu ecuación diferencial:</label>
                 <input type="text" id="equation" name="equation" required>
                 <button type="submit">Identificar</button>
@@ -31,24 +31,56 @@
                     <tbody>
                         <tr>
                             <td>Grado</td>
-                            <td id="degree-result"></td>
+                            <td id="degree-result">N/A</td>
                         </tr>
                         <tr>
                             <td>Orden</td>
-                            <td id="order-result"></td>
+                            <td id="order-result">N/A</td>
                         </tr>
                         <tr>
                             <td>Linealidad</td>
-                            <td id="linearity-result"></td>
+                            <td id="linearity-result">N/A</td>
                         </tr>
                         <tr>
                             <td>Tipo</td>
-                            <td id="type-result"></td>
+                            <td id="type-result">N/A</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
         </main>
     </div>
+    <!-- Script para manejar el formulario -->
+    <script>
+        document.getElementById('equation-form').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Evita que el formulario recargue la página
+
+            const equation = document.getElementById('equation').value;
+
+            try {
+                // Realiza una solicitud POST a la API del backend
+                const response = await fetch('/ident', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ equation }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al procesar la solicitud');
+                }
+
+                const data = await response.json();
+
+                // Actualiza la tabla con los resultados
+                document.getElementById('degree-result').textContent = data.grado || 'N/A';
+                document.getElementById('order-result').textContent = data.orden || 'N/A';
+                document.getElementById('linearity-result').textContent = data.linealidad || 'N/A';
+                document.getElementById('type-result').textContent = data.tipo || 'N/A';
+            } catch (error) {
+                console.error(error);
+                alert('Hubo un error al identificar la ecuación. Intenta de nuevo.');
+            }
+        });
+    </script>
 {% endblock %}
 </html>
