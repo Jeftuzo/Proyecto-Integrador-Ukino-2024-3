@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}Multiplexor{% endblock %}
+<html lang="es">
+{% block head %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demultiplexor 4051</title>
+    <link rel="stylesheet" href="/static/estilos/demulti.css">
+    {{super()}}
+    {% endblock %}
+    {% block body %}
+    <div class="container">
+        <h1>Simulador de Demultiplexor 4051</h1>
+        
+        <div class="main-content">
+            <!-- Entrada única y señales de control -->
+            <div class="input-column">
+                <h2>Entrada</h2>
+                <button id="X" onclick="toggleValue('X')">X: 0</button>
+
+                <h2>Selección de Control (A, B, C)</h2>
+                <button id="inputA" onclick="toggleValue('inputA')">C: 0</button>
+                <button id="inputB" onclick="toggleValue('inputB')">B: 0</button>
+                <button id="inputC" onclick="toggleValue('inputC')">A: 0</button>
+            </div>
+
+            <!-- Imagen del circuito -->
+            <!-- Imagen del circuito -->
+            <div class="circuit-image">
+                <img src="/static/image/Demultiplexor.png" alt="Circuito del Multiplexor 4051">
+            </div>
+
+            <!-- Salidas Y0 a Y7 -->
+            <div class="output-column">
+                <h2>Salidas (X0 - X7)</h2>
+                <div id="outputs">
+                    <p>X0: 0</p>
+                    <p>X1: 0</p>
+                    <p>X2: 0</p>
+                    <p>X3: 0</p>
+                    <p>X4: 0</p>
+                    <p>X5: 0</p>
+                    <p>X6: 0</p>
+                    <p>X7: 0</p>
+                </div>
+                <button class="simulate-btn" onclick="simularDemux()">Simular</button>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/demulti.js"></script>
+    {% endblock %}
+</html>

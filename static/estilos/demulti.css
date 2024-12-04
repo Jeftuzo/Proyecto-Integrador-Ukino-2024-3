@@ -15,6 +15,16 @@
     width: 100%;
 }
 
+.container {
+    text-align: center;
+    background: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    width: 100%;
+}
+
 h1 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -29,7 +39,7 @@ h1 {
     gap: 2rem;
 }
 
-/* Columna de entradas */
+/* Columna de entrada y señales de control */
 .input-column {
     display: flex;
     flex-direction: column;
@@ -57,21 +67,15 @@ h1 {
     background-color: #f0f0f0;
 }
 
-/* Espacio extra entre entradas D y de control */
-.control-header {
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-}
-
 /* Imagen del circuito */
 .circuit-image {
-    width: 500px;
+    width: 200px;
     height: auto;
 }
 
 .circuit-image img {
-    max-width: 250%;
-    height: 700px;
+    max-width: 100%;
+    height: auto;
     display: block;
     margin: 0 auto;
 }
@@ -80,7 +84,7 @@ h1 {
 .output-column {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     margin-left: 1rem;
 }
 
@@ -90,9 +94,9 @@ h1 {
     color: #333;
 }
 
-.output {
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
+#outputs p {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
 }
 
 button.simulate-btn {
@@ -109,4 +113,3 @@ button.simulate-btn {
 button.simulate-btn:hover {
     background-color: #561c1c;
 }
-

@@ -108,6 +108,12 @@ def multi():
     if request.method == 'GET':
         return render_template('multiplexor.html')
     
+@app.route('/demulti', methods=['GET'])
+@app.route('/demulti/', methods=['GET'])
+def demulti():
+    if request.method == 'GET':
+        return render_template('demultiplexor.html')
+    
 @app.route('/perfil', methods=['GET'])
 @app.route('/perfil/', methods=['GET'])
 def perfil():
