@@ -121,7 +121,7 @@ def identificar_ecuacion(ecuacion):
     # Simplificado para este ejemplo
     resultado = {
         "grado": "1" if "^" not in ecuacion else "2",  
-        "orden": "2",  # Placeholder para orden
+        "orden": "2",  
         "linealidad": "Lineal" if "y" in ecuacion and "^" not in ecuacion else "No lineal",
         "tipo": "Ordinaria" if "∂" not in ecuacion else "Parcial"
     }

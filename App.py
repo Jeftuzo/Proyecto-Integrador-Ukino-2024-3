@@ -3,6 +3,8 @@ from flask import*
 from passlib.hash import sha256_crypt
 from funciones import *
 from login import inicio
+import re
+
 
 app = Flask(__name__)
 app.secret_key = "Moltr3s_3l_Gu4jolot3_M4cías"
@@ -135,20 +137,32 @@ def process_equation():
 
 @app.route('/ident', methods=['POST'])
 def identify_equation():
-    # Obtener los datos enviados desde el formulario
     data = request.get_json()
-    equation = data.get('equation')
+    ecuacion = data.get('equation')
+    def identificar(ecuacion):
+        grado = 1
+        orden = 1
 
-    # Aquí debes implementar tu lógica para identificar la ecuación
-    # Ejemplo: Procesar la ecuación y obtener los resultados
+        match_grado = re.findall(r'(?<![dx])\^(\d)', ecuacion)
+        if match_grado:
+            grado = max(map(int, match_grado))
+
+        if "d^" in ecuacion:
+            for i in range(2,8):
+                if re.search(rf"d\^{i}(?![dx])", ecuacion):
+                    orden = i
+                    break
+        
+        return grado, orden
+    
+    grado, orden = identificar(ecuacion)
     results = {
-        "grado": "2",  # Supongamos que es de grado 2
-        "orden": "1",  # Supongamos que es de primer orden
-        "linealidad": "Lineal",  # Ejemplo de resultado
-        "tipo": "Ordinaria"  # Ejemplo de resultado
+        "grado": f"{grado}", 
+        "orden": f"{orden}",  
+        "linealidad": "Lineal" if "y" in ecuacion and "^" not in ecuacion else "No lineal",
+        "tipo": "Ordinaria" if "∂" not in ecuacion else "Parcial" 
     }
 
-    # Devolver los resultados como JSON
     return jsonify(results)
 
 
