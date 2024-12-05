@@ -1,3 +1,8 @@
+html, body {
+    overflow-y: auto; /* Activa la barra de desplazamiento vertical si es necesario */
+}
+
+
 *{
     box-sizing: border-box;
     margin: 0;
@@ -12,3 +17,90 @@ section{
     background-color: rgb(255, 255, 255);
     width: 80%;
 }
+h1{
+    font-size: 2em;
+    text-align: center;
+    margin: 1em 0;
+}
+p1{
+    font-size: 1.5em;
+    font-style: normal;
+    text-align: justify;
+    margin: 1em 0;
+}
+h2{
+    font-size: 2em;
+    text-align: center;
+    margin: 1em 0;
+}
+p2{
+    font-size: 1.5em;
+    font-style: normal;
+    text-align: justify;
+    margin: 1em 0;
+}
+h3{
+    font-size: 2em;
+    text-align: center;
+    margin: 1em 0;
+}
+p3{
+    font-size: 1.5em;
+    font-style: normal;
+    text-align: justify;
+    margin: 1em 0;
+}
+#MisionVision {
+    background-color: #ffffff;
+    padding: 2em 0;
+    margin-top: 2em;
+}
+
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1em;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.mision, .vision {
+    flex: 1 1 calc(50% - 1em); /* Ocupa el 50% del ancho menos el espacio entre columnas */
+    background-color: #fff1f1;
+    padding: 1.5em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.mision h3, .vision h3 {
+    font-size: 1.8em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+.mision p, .vision p {
+    font-size: 1.2em;
+    text-align: justify;
+}
+
+.valores {
+    margin: 2em auto; /* Centra el cuadro automáticamente */
+    background-color: #fff1f1;
+    padding: 1.5em;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    text-align: center;
+    width: 60%; /* Ajusta el ancho del cuadro */
+}
+
+.valores h3 {
+    font-size: 1.8em;
+    margin-bottom: 1em;
+}
+
+.valores p {
+    font-size: 1.2em;
+    text-align: justify;
+}
+

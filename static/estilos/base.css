@@ -1,3 +1,7 @@
+html, body {
+    overflow-y: auto; /* Activa la barra de desplazamiento vertical si es necesario */
+}
+
 body {
     font-family: Arial, sans-serif;
     justify-content: center;
