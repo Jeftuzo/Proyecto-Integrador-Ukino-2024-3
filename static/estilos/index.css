@@ -17,39 +17,41 @@ section{
     background-color: rgb(255, 255, 255);
     width: 80%;
 }
+
 h1{
     font-size: 2em;
     text-align: center;
     margin: 1em 0;
 }
-p1{
+.nosotros{
+    background-color: #ffffff;
+    text-align: justify;
     font-size: 1.5em;
     font-style: normal;
-    text-align: justify;
-    margin: 1em 0;
 }
 h2{
     font-size: 2em;
     text-align: center;
     margin: 1em 0;
 }
-p2{
+.proyecto{
+    background-color: #ffffff;
+    text-align: justify;
     font-size: 1.5em;
     font-style: normal;
-    text-align: justify;
-    margin: 1em 0;
 }
 h3{
     font-size: 2em;
     text-align: center;
     margin: 1em 0;
 }
-p3{
+.escuela{
+    background-color: #ffffff;
+    text-align: justify;
     font-size: 1.5em;
     font-style: normal;
-    text-align: justify;
-    margin: 1em 0;
 }
+
 #MisionVision {
     background-color: #ffffff;
     padding: 2em 0;
