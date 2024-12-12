@@ -10,6 +10,7 @@
     <!-- Fonts CSS-->
     <link rel="stylesheet" href="/static/personajes.css">
     <link rel="stylesheet" href="/static/body.css">
+    <link rel="stylesheet" href="/static/estilos/index.css">
     <link rel="stylesheet" href="/static/estilos/materias.css">
     <link rel="stylesheet" href="/static/estilos/ident.css">
     <link rel="stylesheet" href="/static/estilos/ed.css" >
@@ -25,6 +26,52 @@
                 <a href="/ident"><button class="boton-estilizado">Identificador de ED</button></a>
             </div>
         </div>
+        <div class="Resumen">
+            <h2>ECUACIONES LINEALES DE PRIMER ORDEN</h2>
+            <p>Las ecuaciones lineales de primer orden son ecuaciones diferenciales de la forma 
+                𝑑𝑦/𝑑𝑥 + 𝑃 (𝑥) 𝑦 = 𝑄 (𝑥), donde 𝑃(𝑥) y  𝑄(𝑥) son funciones de 𝑥
+                .</p>
+                <p>Se trata de ecuaciones que involucran la derivada de una función desconocida respecto a una variable independiente, generalmente denotada como 
+                    𝑥
+                    .</p>
+                    <h2>Clasificación según el tipo: </h2>
+                <p>Pueden ser homogéneas si 
+                    𝑄(𝑥) = 0, o no homogéneas si 𝑄 (𝑥) ≠ 0
+                    .</p>
+                    <h2>Clasificación según el orden:</h2>
+                <p> Son de primer orden porque la derivada más alta que aparece en la ecuación es de primer orden.</p>
+                <h2>Definición de linealidad y no linealidad:</h2>
+                <p> Una ecuación es lineal si puede escribirse en la forma 
+                    𝑑𝑦/𝑑𝑥 + 𝑃(𝑥)𝑦 = 𝑄(𝑥). Es no lineal si involucra productos, potencias u otras funciones no lineales de 𝑦 o  𝑑𝑦/𝑑𝑥
+                    .</p>
+                    <h2>Las variables separables</h2>
+                <p> son ecuaciones diferenciales que se pueden reescribir de manera que todas las variables dependientes estén en un lado de la ecuación y todas las variables independientes estén en el otro lado. La forma general es: 𝑑𝑦/𝑑𝑥 = 𝑔 (𝑥) ℎ(𝑦)
+                    Estas ecuaciones se resuelven integrando ambos lados después de separarlas.</p>
+
+            <h2>ECUACIONES LINEALES DE SEGUNDO ORDEN</h2>
+            <h2>Reducción de ORDEN</h2>
+            <p>La reducción de orden es un método utilizado para encontrar una segunda solución linealmente independiente de una ecuación diferencial lineal cuando ya se conoce una solución. Este método simplifica la ecuación al reducir su orden.</p>
+            <h2>Ecuaciones lineales homogéneas con coeficiente constante</h2>
+            <p>Las ecuaciones lineales homogéneas con coeficiente constante tienen la forma 
+                𝑎(𝑑^2𝑦/𝑑𝑥^2) + 𝑏 (𝑑𝑦/𝑑𝑥) + 𝑐𝑦 = 0
+                . Sus soluciones se obtienen resolviendo la ecuación característica asociada, que es una ecuación algebraica en términos de las raíces.</p>
+
+            <h2>Ecuaciones lineales no homogéneas</h2>
+             <p> Las ecuaciones lineales no homogéneas incluyen un término no homogéneo 
+                𝑓(𝑥) y se expresan como 𝑎(𝑑^2𝑦/𝑑𝑥^2) + 𝑏(𝑑𝑦/𝑑𝑥) + 𝑐𝑦 = 𝑓(𝑥)
+                . Se resuelven sumando la solución general de la ecuación homogénea asociada y una solución particular.</p>
+
+            <h2>Coeficientes indeterminados</h2>
+            <p> El método de coeficientes indeterminados se utiliza para encontrar una solución particular de ecuaciones lineales no homogéneas cuando el término 
+                𝑓(𝑥)
+                 es una función simple como un polinomio, seno, coseno, o una combinación de estos.</p>
+            <h2>Variación de parámetros</h2>
+            <p> La variación de parámetros es otra técnica para encontrar una solución particular de ecuaciones no homogéneas. Es útil cuando el método de coeficientes indeterminados no es aplicable. Involucra la derivación de una fórmula general basada en las soluciones de la ecuación homogénea asociada.</p>
+            <h2>Ecuaciones de orden superior</h2>
+            <p> Las ecuaciones de orden superior extienden los conceptos de las ecuaciones de segundo orden a derivadas de mayor orden. Se resuelven utilizando técnicas similares adaptadas a la mayor complejidad que implica manejar más derivadas y términos.</p>
+
+        </div>
+        
         <p>{{datos[1]}}</p>
     </section>
     <div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>

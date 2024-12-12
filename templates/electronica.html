@@ -9,6 +9,7 @@
     <link href="/static/estilos/style.css" rel="stylesheet">
     <!-- Fonts CSS-->
     <link rel="stylesheet" href="/static/personajes.css">
+    <link rel="stylesheet" href="/static/estilos/index.css">
     <link rel="stylesheet" href="/static/body.css">
     <link rel="stylesheet" href="/static/estilos/materias.css">
     <link rel="stylesheet" href="/static/estilos/multi.css">
@@ -26,7 +27,36 @@
                 <a href="/demulti"><button class="boton-estilizado">Demultiplexor</button></a>
             </div>
         </div>
-        <p>{{datos[1]}}</p>
+
+        <div class="Resumen">
+            <h2>Fundamentos de los sistemas digitales y los sistemas numericos</h2>
+            <p>Los fundamentos de los sistemas digitales se basan en la utilización de circuitos electrónicos para procesar información binaria, es decir, utilizando bits que representan estados 0 y 1. Estos sistemas son esenciales en la informática y electrónica moderna, permitiendo el diseño de dispositivos y tecnologías avanzadas. Los sistemas numéricos, por otro lado, son métodos para representar y manipular números. Incluyen sistemas como el binario (base 2), octal (base 8), decimal (base 10) y hexadecimal (base 16). Cada uno de estos sistemas tiene aplicaciones específicas en el ámbito digital, donde la conversión y operación entre diferentes bases es crucial para el correcto funcionamiento de los sistemas electrónicos y de computación.</p>
+
+            <h2>Compuertas logicas</h2>
+            <p>Las compuertas lógicas son los bloques fundamentales de los circuitos digitales. Estas compuertas realizan operaciones lógicas básicas sobre una o más señales de entrada para producir una señal de salida. Las principales compuertas lógicas son: AND, OR, NOT, NAND, NOR, XOR y XNOR. Cada una de ellas tiene una función específica y una tabla de verdad que describe su comportamiento. Por ejemplo, una compuerta AND solo produce una salida verdadera cuando todas sus entradas son verdaderas, mientras que una compuerta OR produce una salida verdadera si al menos una de sus entradas es verdadera. Estas compuertas son cruciales en el diseño de sistemas digitales y se utilizan para construir circuitos más complejos como flip-flops, contadores y procesadores.</p>
+
+            <h2>Multiplexores (MUX)</h2>
+            <p>Los multiplexores son circuitos combinacionales que seleccionan una de varias líneas de entrada y la conectan a una única línea de salida, basada en las señales de control. Funcionan como un interruptor digital que permite dirigir una señal de entrada a la salida deseada. Son útiles en aplicaciones que requieren la selección de datos provenientes de diferentes fuentes.</p>
+
+            <h2>Demultiplexores (DEMUX)</h2>
+            <p>Los demultiplexores son dispositivos que reciben una señal de entrada y la distribuyen a una de varias líneas de salida, según las señales de control. Actúan de manera inversa a los multiplexores, permitiendo que una única entrada se dirija a múltiples salidas. Son esenciales en sistemas de comunicación y distribución de datos.</p>
+
+            <h2>Decodificadores</h2>
+            <p>Los decodificadores son circuitos que convierten códigos binarios de entrada en una salida específica. Por ejemplo, un decodificador de 3 a 8 convierte una combinación de 3 bits de entrada en una de 8 salidas. Cada combinación de entrada activa una salida diferente. Los decodificadores se utilizan comúnmente en aplicaciones de selección de memoria y en la generación de señales de control.</p>
+            
+            <h2>Codificadores</h2>
+            <p>Los codificadores realizan la función inversa de los decodificadores, tomando varias líneas de entrada y convirtiéndolas en una representación binaria de menor cantidad de bits en la salida. Por ejemplo, un codificador de 8 a 3 toma 8 líneas de entrada y las convierte en una combinación de 3 bits de salida. Son utilizados en sistemas donde se necesita simplificar el número de señales de control.</p>
+
+            <h2>Logica secuencial asincrona</h2>
+            <p>La lógica secuencial asíncrona es un tipo de lógica digital que no depende de un reloj global para sincronizar sus operaciones. En lugar de ello, los cambios en el estado de los circuitos ocurren en respuesta directa a las señales de entrada. Esto contrasta con la lógica secuencial síncrona, que utiliza un reloj para coordinar el cambio de estados. La lógica asíncrona puede ser más rápida y eficiente en términos de consumo de energía porque no tiene la sobrecarga del reloj, pero es más compleja de diseñar y analizar debido a los riesgos de condiciones de carrera y fluctuaciones de señales. Se utiliza en aplicaciones donde la velocidad y la eficiencia energética son críticas, como en algunos sistemas integrados y procesadores.</p>
+
+            <h2>Sincronizacion con el mundo analogico</h2>
+            <p>La sincronización con el mundo analógico se refiere a la integración y comunicación efectiva entre sistemas digitales y señales analógicas. Los sistemas digitales operan con datos discretos, mientras que las señales analógicas varían de manera continua. Para lograr esta sincronización, se utilizan convertidores analógico-digitales (ADC) y digital-analógicos (DAC). Los ADC convierten señales analógicas en datos digitales para su procesamiento por sistemas digitales, mientras que los DAC realizan la conversión inversa, transformando datos digitales en señales analógicas utilizables por dispositivos analógicos. Esta interacción es crucial en aplicaciones como audio, video, y sensores, donde la información del mundo real se debe procesar y controlar mediante sistemas digitales.</p>
+
+
+        </div>
+
+
     </section>
     <div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
     <!-- Bootstrap core JS-->

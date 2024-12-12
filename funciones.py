@@ -100,10 +100,31 @@ def getConceptos(materia:str)->str:
         conceptos1 = cursor.fetchone()
         conceptos2 = cursor.execute("SELECT descripcion FROM conceptos WHERE paginas =" + "'" + materia +"'")
         conceptos2 = cursor.fetchone()
+
     conexion.close() 
     
     concepts.append(conceptos1.__getitem__(0))
     concepts.append(conceptos2.__getitem__(0))
+    return concepts
+
+
+    concepts = []
+    conexion = conectarse()
+    with conexion.cursor() as cursor:
+        llaveforanea = cursor.execute("SELECT id FROM conceptos WHERE paginas =" + "'" + materia +"'")
+        llaveforanea = cursor.fetchone()
+        conceptos3 = cursor.execute("SELECT subtema FROM subtitulos WHERE paginas ="  + llaveforanea +"")
+        conceptos3 = cursor.fetchall()
+        conceptos4 = cursor.execute("SELECT descripcion FROM subtitulos WHERE paginas ="  + llaveforanea +"")
+        conceptos4 = cursor.fetchall()
+
+    conexion.close() 
+
+    for i in range(len(conceptos3)):
+        us1 = conceptos3.__getitem__(i)
+        us2 = conceptos4.__gettitem__(i)
+        concepts.append(us1.__getitem__(0))
+        concepts.append(us2.__getitem__(0))
     return concepts
 
 '''def getIDPagina(pagina:str)->str:
