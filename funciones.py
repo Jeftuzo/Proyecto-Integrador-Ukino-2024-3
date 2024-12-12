@@ -25,13 +25,14 @@ class Usuario():
         self.contraseña = constraña
         self.status = status
 
-def guardarUsuario(nombre:str, correo:str, constraña:str, status):
-    password_cryp = sha256_crypt.hash(constraña)
+def guardarUsuario(nombre: str, correo: str, contraseña: str, status: str):
+    password_cryp = sha256_crypt.hash(contraseña)
     conexion = conectarse()
     with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO usuario(nombre, correo, contraseña, estatus) VALUES(%s, %s, %s, %s)",(nombre, correo, password_cryp, status))
+        cursor.execute("INSERT INTO usuario(nombre, correo, contraseña, estatus) VALUES(%s, %s, %s, %s)", (nombre, correo, password_cryp, status))
     conexion.commit()
     conexion.close()
+
 #guardarUsuario("patata", "patata@correo.com", "patata", "1")
 
 def actualizarEstado(nombre:str, activo:int):
@@ -49,46 +50,39 @@ def actualizarContraseña(nombre:str, contraña:str):
     conexion.close()
 
 #endregion
-#region setDatos
-def guardarCombinacionesMulti(multiplexor:str)->None:
-    conexion = conectarse()
-    with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO combinaciones(multiplexor) VALUES(%s, %s)",
-                        (multiplexor))
-    conexion.commit()
-    conexion.close()
-
-def guardarCombinacionesDemulti(demultiplexor:str)->None:
-    conexion = conectarse()
-    with conexion.cursor() as cursor:
-        cursor.execute("INSERT INTO combinaciones(demultiplexor) VALUES(%s, %s)",
-                     (demultiplexor))
-    conexion.commit()
-    conexion.close()
-#endregion
 #region getDatos
-def comprobarUsuario()->list:
+def comprobarUsuario() -> list:
     c_us = []
     conexion = conectarse()
-    with conexion.cursor() as cursor:
-        cursor.execute("SELECT nombre FROM usuario")
-        c_usuario = cursor.fetchall()
-    conexion.close()
-    for i in range(len(c_usuario)):
-        us = c_usuario.__getitem__(i)
-        c_us.append(us.__getitem__(0))
+    try:
+        with conexion.cursor() as cursor:
+            cursor.execute("SELECT nombre FROM usuario")
+            c_usuario = cursor.fetchall()
+        for i in range(len(c_usuario)):
+            us = c_usuario[i][0]
+            c_us.append(us)
+    finally:
+        conexion.close()
     return c_us
+
+
 
 #print(comprobarUsuario())
 
-def getPassword(nombre:str)->str:
+def getPassword(nombre: str) -> str:
     conexion = conectarse()
-    with conexion.cursor() as cursor:
-        password = cursor.execute("SELECT contraseña FROM usuario Where nombre = " + "'" + nombre + "';")
-        password = cursor.fetchone()
-    conexion.close()
-    pas = password.__getitem__(0)
-    return pas
+    password = None
+    try:
+        with conexion.cursor() as cursor:
+            cursor.execute("SELECT contraseña FROM usuario WHERE nombre = %s;", (nombre,))
+            result = cursor.fetchone()
+            if result:
+                password = result[0]
+    finally:
+        conexion.close()
+    return password
+
+
 
 #print(getPassword("patata"))
 

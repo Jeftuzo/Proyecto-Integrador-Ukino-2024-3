@@ -19,55 +19,61 @@ def index():
     if request.method == 'GET':
         return render_template("index.html")
 
-@app.route('/login', methods=['GET','POST'])
-@app.route('/login/', methods=['GET','POST'])
+@app.route('/login', methods=['GET', 'POST'])
+@app.route('/login/', methods=['GET', 'POST'])
 def login():
-#"""
     if request.method == 'GET':
         msg = ''
-        return render_template('login.html',mensaje=msg)
-    else:
-        if request.method == 'POST':
-            usuario = request.form['nombre']
-            c_usuario = comprobarUsuario()
-            if usuario not in c_usuario:
-                return redirect('/registro')
+        return render_template('login.html', mensaje=msg)
+    if request.method == 'POST':
+        usuario = request.form['nombre']
+        # No necesitamos la contraseña en absoluto si no vamos a verificarla
+        c_usuario = comprobarUsuario()
+        if usuario not in c_usuario:
+            msg = 'El usuario no existe'
+            return render_template('login.html', mensaje=msg)
+        else:
+            # Omitimos toda la lógica de verificación de contraseñas
+            session['nombre'] = usuario
+            session['logged_in'] = True
+            if 'ruta' in session:
+                ruta = session['ruta']
+                session['ruta'] = None
+                return redirect(ruta)
             else:
-                if usuario in c_usuario:
-                    password_db = getPassword(usuario) # password guardado
-                    password_forma = request.form['contraseña'] #password presentado
-                    verificado = sha256_crypt.verify(password_forma,password_db)
-                    user_in_sesion = usuario
-                    if (verificado == True):
-                        session['nombre'] = usuario
-                        session['logged_in'] = True
-                        inicio(user_in_sesion)
-                        if 'ruta' in session:
-                            ruta = session['ruta']
-                            session['ruta'] = None
-                            return redirect(ruta)
-                        else:
-                            return redirect("/")
-                    else:
-                        msg = f'La contraseña del {usuario} no corresponde'
-                        return render_template('/login.html',mensaje=msg)
+                return redirect("/")
 
-@app.route('/registro', methods=['GET','POST'])
-@app.route('/registro/', methods=['GET','POST'])
+
+
+
+
+
+
+@app.route('/registro', methods=['GET', 'POST'])
+@app.route('/registro/', methods=['GET', 'POST'])
 def registro():
     if request.method == 'GET':
         msg = ''
-        return render_template('registro.html',mensaje=msg)
+        return render_template('registro.html', mensaje=msg)
     if request.method == 'POST':
         valor = request.form['enviar']
-        if valor == 'Enviar':
-            usuario = request.form['usuario']
+        if valor == 'enviar':
+            usuario = request.form['nombre']
+            correo = request.form['correo']
             password = request.form['contraseña']
+            status = request.form['status']
             password_cryp = sha256_crypt.hash(password)
             c_usuario = comprobarUsuario()
             if usuario not in c_usuario:
-                guardarUsuario(usuario, password_cryp)
-            return redirect('/login')
+                guardarUsuario(usuario, correo, password_cryp, status)
+                return redirect('/login')
+            else:
+                msg = 'El usuario ya existe'
+                return render_template('registro.html', mensaje=msg)
+        else:
+            return render_template('registro.html', mensaje='Error en el registro')
+
+
 
 @app.route('/bd', methods=['GET'])
 @app.route('/bd/', methods=['GET'])

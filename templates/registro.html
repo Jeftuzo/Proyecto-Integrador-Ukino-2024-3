@@ -123,11 +123,14 @@
     <form action="" method="POST" class="form-box animate__animated animate__fadeInUp">
         <h1>Registro de nuevo Usuario</h1>
         <input type="text" placeholder="Nombre" name="nombre" required>
+        <input type="email" placeholder="Correo" name="correo" required>
         <input type="password" placeholder="Contraseña" name="contraseña" required>
-        <button method="POST" id="enviar" name="enviar" value="enviar" type="submit">>Registrar</button>
+        <input type="hidden" name="status" value="1"> <!-- Suponiendo un estado por defecto -->
+        <button method="POST" id="enviar" name="enviar" value="enviar" type="submit">Registrar</button>
         <div>
             <a href="/login">¿Ya tienes usuario?</a>
         </div>
     </form>
+    
 </body>
 </html>
