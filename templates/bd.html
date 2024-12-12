@@ -1,26 +1,58 @@
 {% extends "base.html" %}
-{% block title %}Base de Datos{% endblock %}
+{% block title %}Electronica{% endblock %}
 {% block head %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Font Awesome icons (free version)-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="/static/style.css" rel="stylesheet">
+    <link href="/static/estilos/style.css" rel="stylesheet">
     <!-- Fonts CSS-->
     <link rel="stylesheet" href="/static/personajes.css">
+    <link rel="stylesheet" href="/static/estilos/index.css">
     <link rel="stylesheet" href="/static/body.css">
     <link rel="stylesheet" href="/static/estilos/materias.css">
+
 {{super()}}
 {% endblock %}
 {% block body %}
     <!-- Portfolio Modal-->
-    {% block section %}
-    <section>
-        <h1>{{datos[0]}}</h1>
-        <p>{{datos[1]}}</p>
+    <section class="contenedor-principal">
+        <div class="titulo-botones">
+            <h1>{{datos[0]}}</h1>
+        </div>
+
+        <div class="Resumen">
+            <h2>Entidades y conjunto de entidades</h2>
+            <p>Un conjunto de entidades es un contenedor lógico para las instancias de un tipo de entidad y las instancias de cualquier tipo que se deriven de ese tipo de entidad. 
+                Un conjunto de entidades se define dentro de un contenedor de entidades, que es una agrupación lógica de conjuntos de entidades y conjuntos de asociaciones.
+                </p>
+
+            <h2>Relaciones y conjunto de relaciones</h2>
+            <p>Las relaciones en bases de datos son vínculos que se establecen entre las tablas para mantener la integridad y consistencia de los datos. Los tipos principales de relaciones son relacion uno a uno, uno a muchos y muchos a muchos.</p>
+
+            <h2>Llaves primarias</h2>
+            <p>Una llave primaria es un atributo o conjunto de atributos en una tabla de base de datos que identifica de manera única cada registro en esa tabla. Algunos puntos clave sobre las llaves primarias son su unicidad, que no sean nulos, su integridad y sus relaciones con otras tablas.  </p>
+
+            <h2>Diagrama entidad relación</h2>
+            <p>Un diagrama entidad-relación, también conocido como modelo entidad relación o ERD, es un tipo de diagrama de flujo que ilustra cómo las "entidades", como personas, objetos o conceptos, se relacionan entre sí dentro de un sistema. </p>
+
+            <h2>Generalización</h2>
+            <p>La generalización es el proceso de combinar varias entidades de nivel inferior en una entidad de nivel superior. Este proceso se utiliza para identificar las características comunes entre diferentes entidades y agruparlas en una entidad más general. Es un enfoque de abajo hacia arriba. Es útil para reducir la redundancia y simplificar el modelo de datos.</p>
+            
+            <h2>Especialización</h2>
+            <p>La especialización es el proceso inverso a la generalización. Consiste en dividir una entidad de nivel superior en entidades de nivel inferior más específicas. Este proceso se utiliza para identificar características específicas que distinguen a las entidades especializadas. Es un enfoque de arriba hacia abajo. Es útil para capturar detalles específicos y mejorar la precisión del modelo de datos.</p>
+
+            <h2>Agregación</h2>
+            <p>La agregación en bases de datos es un concepto que se utiliza para combinar y resumir datos de múltiples filas en una sola fila, proporcionando información consolidada y resumida. Este proceso es especialmente útil para el análisis de grandes conjuntos de datos y la creación de informes.</p>
+
+            <h2>Estructuras de las bases de datos relacionales</h2>
+            <p>•	La base de datos y la estructura de base de datos se definen en el proceso de instalación. La estructura de base de datos depende de si la base de datos es Oracle Database, IBM® Db2 o Microsoft SQL Server. Se puede percibir como un conjunto de tablas y se puede manipular según el modelo relacional de los datos. Cada base de datos incluye: conjunto de tablas de catálogo de sistema que describe la estructura lógica y física de los datos</p>
+
+        </div>
+
+
     </section>
-    {% endblock %}
     <div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

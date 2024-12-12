@@ -1,26 +1,48 @@
 {% extends "base.html" %}
-{% block title %}Programacion Orientada a Objetos II{% endblock %}
+{% block title %}Electronica{% endblock %}
 {% block head %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- Font Awesome icons (free version)-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js" crossorigin="anonymous"></script>
     <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="/static/style.css" rel="stylesheet">
+    <link href="/static/estilos/style.css" rel="stylesheet">
     <!-- Fonts CSS-->
     <link rel="stylesheet" href="/static/personajes.css">
+    <link rel="stylesheet" href="/static/estilos/index.css">
     <link rel="stylesheet" href="/static/body.css">
     <link rel="stylesheet" href="/static/estilos/materias.css">
+
 {{super()}}
 {% endblock %}
 {% block body %}
     <!-- Portfolio Modal-->
-    {% block section %}
-    <section>
-        <h1>{{datos[0]}}</h1>
-        <p>{{datos[1]}}</p>
+    <section class="contenedor-principal">
+        <div class="titulo-botones">
+            <h1>{{datos[0]}}</h1>
+
+        </div>
+
+        <div class="Resumen">
+            <h2>Excepciones</h2>
+            <p>Las excepciones en la Programación Orientada a Objetos (POO) son mecanismos que permiten manejar errores y situaciones inesperadas de manera estructurada y controlada. En lugar de que el programa se detenga abruptamente al encontrar un error, las excepciones permiten capturar y gestionar estos errores mediante bloques de código específicos, conocidos como try, catch, y finally.</p>
+
+            <h2>Uso de Threading Handling en Java</h2>
+            <p>El manejo de hilos (Threading Handling) en Java permite la ejecución concurrente de múltiples tareas dentro de un programa. Esto se logra creando y gestionando hilos (threads), que son caminos independientes de ejecución. Java proporciona la clase Thread y la interfaz Runnable para implementar y controlar estos hilos. El uso de threading mejora el rendimiento de las aplicaciones al permitir la ejecución simultánea de tareas, optimizando el uso de recursos del sistema.</p>
+
+            <h2>Componentes de la Unidad Grafica (GUI)</h2>
+            <p>Los componentes de la Unidad Gráfica de Usuario (GUI) son los elementos visuales que permiten la interacción del usuario con una aplicación. Estos componentes incluyen botones, etiquetas, cuadros de texto, menús, paneles y tablas, entre otros. La biblioteca Swing de Java proporciona una amplia gama de estos componentes, que se pueden personalizar y manipular a través de eventos y listeners para crear interfaces de usuario intuitivas y funcionales.</p>
+
+            <h2>Handling Event</h2>
+            <p>El manejo de eventos (Handling Event) es una técnica fundamental para la creación de aplicaciones interactivas y responsivas. Implica capturar y responder a las acciones del usuario, como clics de botones, movimientos del ratón, y entradas de teclado. Java proporciona un modelo de delegación de eventos, donde los eventos son generados por fuentes (componentes de GUI) y manejados por oyentes (listeners) que implementan interfaces específicas, como ActionListener para acciones de botones o MouseListener para eventos del ratón.</p>
+
+            <h2>Aplicaciones Basadas en GUI</h2>
+            <p>Las aplicaciones basadas en GUI (Interfaz Gráfica de Usuario) son programas diseñados para facilitar la interacción del usuario a través de elementos visuales, como ventanas, botones, menús y formularios. Estas aplicaciones proporcionan una experiencia de usuario intuitiva y atractiva, permitiendo a los usuarios realizar tareas mediante la manipulación directa de los componentes visuales en lugar de introducir comandos de texto.</p>
+
+        </div>
+
+
     </section>
-    {% endblock %}
     <div class="scroll-to-top d-lg-none position-fixed"><a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i class="fa fa-chevron-up"></i></a></div>
     <!-- Bootstrap core JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
